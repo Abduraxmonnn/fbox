@@ -353,7 +353,7 @@ body {
 
 .partner-logo {
     flex-shrink: 0;
-    width: 150px;
+    width: clamp(80px, 10vw, 150px);
     height: auto;
     margin: 0 2rem;
     opacity: 0.7;
@@ -400,13 +400,10 @@ body {
 }
 
 .modal-content {
-    position: relative;
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 700px;
+    position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .close {
@@ -427,6 +424,15 @@ body {
 #productVideo {
     width: 100%;
     height: auto;
+}
+
+.video-container:hover .product-image {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.stat, .feature, .badge {
+    will-change: transform, opacity;
 }
 
 /* Responsive Design */
