@@ -1,0 +1,496 @@
+/* Modern CSS Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom Properties */
+:root {
+    --clr-primary: #ff3b3b;
+    --clr-secondary: #00ff9d;
+    --clr-dark: #0a0a0a;
+    --clr-light: #ffffff;
+    --gradient: linear-gradient(135deg, #0f1729 0%, #1a1a2e 100%);
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    color: var(--clr-light);
+    background: var(--gradient);
+    min-height: 100vh;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+/* Typography */
+.title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.product-name {
+    font-family: monospace;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: var(--clr-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Stats Grid */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    color: var(--clr-primary);
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Features */
+.features {
+    margin: 3rem 0;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.feature::before {
+    content: "•";
+    color: var(--clr-primary);
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+/* Product Showcase */
+.product-showcase {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+.product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Badge Container */
+.badges-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+}
+
+/* Badge Base Styles */
+.badge {
+    position: relative;
+    padding: 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.badge img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Badge Hover Effects */
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+    );
+    transition: 0.5s;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.badge:hover::before {
+    left: 100%;
+}
+
+.badge:hover .badge-glow {
+    opacity: 1;
+}
+
+.badge:hover .badge-image {
+    transform: scale(1.05);
+}
+
+/* Specific Badge Styles */
+.badge-new {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff5252 100%);
+}
+
+.badge-qr {
+    background: linear-gradient(135deg, #ffd700 0%, #fff176 100%);
+}
+
+.badge-asllik {
+    background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+}
+
+.badge-click {
+    background: linear-gradient(135deg, #1a1a1a 0%, #424242 100%);
+}
+
+.badge-payme {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+.badge-humo {
+    background: linear-gradient(135deg, #1a2b47 0%, #2c3e50 100%);
+}
+
+/* Animation for badge entrance */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.badge {
+    animation: float 4s ease-in-out infinite;
+}
+
+.badge:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.badge:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.badge:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.badge:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.badge:nth-child(6) {
+    animation-delay: 1.0s;
+}
+
+/* Animation for badge entrance */
+@keyframes badgeEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.badge-container {
+    animation: badgeEntrance 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger the animation for each badge */
+.badge-container:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.badge-container:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.badge-container:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.badge-container:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.badge-container:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.badge-container:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Partners Carousel */
+.partners {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    animation: carousel 30s linear infinite;
+}
+
+.partner-logo {
+    flex-shrink: 0;
+    width: 120px;
+    height: auto;
+    margin: 0 2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 700px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--clr-primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#productVideo {
+    width: 100%;
+    height: auto;
+}
+
+/* Add a pointer cursor to the product image */
+.product-image {
+    cursor: pointer;
+}
+
+/* Play Button */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-icon {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent transparent transparent white;
+    margin-left: 5px;
+}
+
+.ripple {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0);
+    animation: ripple 2s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.play-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .product-showcase {
+        flex-direction: column;
+    }
+
+    .badges-container {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .badge {
+        width: calc(33.33% - 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .badge {
+        width: calc(50% - 1rem);
+        border-radius: 12px;
+    }
+
+    /*.badge {*/
+    /*    border-radius: 12px;*/
+    /*}*/
+    .badges-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    .badge-image {
+        padding: 0.75rem;
+    }
+
+    .partner-logo {
+        width: 80px;
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .badge {
+        width: 100%;
+    }
+}

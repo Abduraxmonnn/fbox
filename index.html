@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiscalBOX v.1.0</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="title">Онлайн ККМ</h1>
+            <div class="product-name">fiscalBOX v.1.0</div>
+            <h2>Разработан для самых требовательных</h2>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">1.5</div>
+                    <div class="stat-label">млн отрезов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">200</div>
+                    <div class="stat-label">мм/с скорость</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">150</div>
+                    <div class="stat-label">км ресурс</div>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">Раздельные блоки механизмов печати и автоотреза</div>
+                <div class="feature">Трехцветная индикация состояния онлайн-кассы</div>
+                <div class="feature">Датчик окончания чековой ленты</div>
+            </div>
+        </div>
+
+        <div class="product-showcase">
+            <div class="video-container">
+                <img src="assets/images/fiscalbox.jpg"
+                     alt="FiscalBOX v.1.0" class="product-image" id="productImage">
+                <button class="play-button" id="playButton">
+                    <div class="play-icon"></div>
+                    <div class="ripple"></div>
+                </button>
+            </div>
+
+            <div class="badges-container">
+                <div class="badge badge-new">
+                    <img src="assets/images/badges/novinka.png" alt="Новинка">
+                </div>
+                <div class="badge badge-qr">
+                    <img src="assets/images/badges/pkm943.png" alt="Соответсвует ПКМ943">
+                </div>
+                <div class="badge badge-asllik">
+                    <img src="assets/images/badges/asllik.png" alt="Asllik Belgisi">
+                </div>
+                <div class="badge badge-click">
+                    <img src="assets/images/badges/click.png" alt="Click">
+                </div>
+                <div class="badge badge-payme">
+                    <img src="assets/images/badges/payme.png" alt="Pay me">
+                </div>
+                <div class="badge badge-humo">
+                    <img src="assets/images/badges/humo.png" alt="Humo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partners">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="assets/images/partners/mato.jpg" alt="Mato" class="partner-logo">
+                <img src="assets/images/partners/okc.jpg" alt="OKC" class="partner-logo">
+                <img src="assets/images/partners/beta.jpg" alt="Beta" class="partner-logo">
+                <img src="assets/images/partners/bellissimo.jpg" alt="Bellissimo" class="partner-logo">
+                <img src="assets/images/partners/archaroz.jpg" alt="Arcazor" class="partner-logo">
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>M.Ch.J. "BCTechnologies"</p>
+        <p>Адрес: Узбекистан, Ташкент, ул. Афрасиаб 16</p>
+        <p>Почтовый индекс: 100031</p>
+        <p>Телефон: +(99871) 256 50 09</p>
+        <p>Email: info@bct.uz</p>
+    </footer>
+</div>
+
+<div id="videoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <video id="productVideo" controls>
+            <source src="assets/video/fbox-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
