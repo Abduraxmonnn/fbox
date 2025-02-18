@@ -14,6 +14,7 @@
     --gradient: linear-gradient(135deg, #0f1729 0%, #1a1a2e 100%);
 }
 
+/* Base Styles */
 body {
     font-family: system-ui, -apple-system, sans-serif;
     line-height: 1.5;
@@ -22,7 +23,6 @@ body {
     min-height: 100vh;
 }
 
-/* Container */
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -34,7 +34,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    align-items: center;
+    align-items: start;
     padding: 4rem 0;
 }
 
@@ -66,6 +66,11 @@ body {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
 }
 
 .stat-number {
@@ -88,6 +93,14 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateX(10px);
 }
 
 .feature::before {
@@ -115,276 +128,11 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* Product Image */
 .product-image {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
-}
-
-/* Badge Container */
-.badges-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 300px;
-}
-
-/* Badge Base Styles */
-.badge {
-    position: relative;
-    padding: 1rem;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    overflow: hidden;
-}
-
-.badge img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* Badge Hover Effects */
-.badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.1),
-            transparent
-    );
-    transition: 0.5s;
-}
-
-.badge:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.badge:hover::before {
-    left: 100%;
-}
-
-.badge:hover .badge-glow {
-    opacity: 1;
-}
-
-.badge:hover .badge-image {
-    transform: scale(1.05);
-}
-
-/* Specific Badge Styles */
-.badge-new {
-    background: linear-gradient(135deg, #ff3b3b 0%, #ff5252 100%);
-}
-
-.badge-qr {
-    background: linear-gradient(135deg, #ffd700 0%, #fff176 100%);
-}
-
-.badge-asllik {
-    background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
-}
-
-.badge-click {
-    background: linear-gradient(135deg, #1a1a1a 0%, #424242 100%);
-}
-
-.badge-payme {
-    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-}
-
-.badge-humo {
-    background: linear-gradient(135deg, #1a2b47 0%, #2c3e50 100%);
-}
-
-/* Animation for badge entrance */
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-.badge {
-    animation: float 4s ease-in-out infinite;
-}
-
-.badge:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.badge:nth-child(3) {
-    animation-delay: 0.4s;
-}
-
-.badge:nth-child(4) {
-    animation-delay: 0.6s;
-}
-
-.badge:nth-child(5) {
-    animation-delay: 0.8s;
-}
-
-.badge:nth-child(6) {
-    animation-delay: 1.0s;
-}
-
-/* Animation for badge entrance */
-@keyframes badgeEntrance {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.badge-container {
-    animation: badgeEntrance 0.5s ease forwards;
-    opacity: 0;
-}
-
-/* Stagger the animation for each badge */
-.badge-container:nth-child(1) {
-    animation-delay: 0.1s;
-}
-
-.badge-container:nth-child(2) {
-    animation-delay: 0.2s;
-}
-
-.badge-container:nth-child(3) {
-    animation-delay: 0.3s;
-}
-
-.badge-container:nth-child(4) {
-    animation-delay: 0.4s;
-}
-
-.badge-container:nth-child(5) {
-    animation-delay: 0.5s;
-}
-
-.badge-container:nth-child(6) {
-    animation-delay: 0.6s;
-}
-
-/* Partners Carousel */
-.partners {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-}
-
-.carousel {
-    width: 100%;
-    overflow: hidden;
-}
-
-.carousel-track {
-    display: flex;
-    animation: carousel 30s linear infinite;
-}
-
-.partner-logo {
-    flex-shrink: 0;
-    width: 120px;
-    height: auto;
-    margin: 0 2rem;
-    opacity: 0.7;
-    transition: opacity 0.3s;
-}
-
-.partner-logo:hover {
-    opacity: 1;
-}
-
-@keyframes carousel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-/* Pause animation on hover */
-.carousel:hover .carousel-track {
-    animation-play-state: paused;
-}
-
-/* Footer */
-.footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-.modal-content {
-    position: relative;
-    margin: auto;
-    padding: 20px;
-    width: 80%;
-    max-width: 700px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.close {
-    color: #fff;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: var(--clr-primary);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#productVideo {
-    width: 100%;
-    height: auto;
-}
-
-/* Add a pointer cursor to the product image */
-.product-image {
-    cursor: pointer;
 }
 
 /* Play Button */
@@ -440,9 +188,237 @@ body {
     transform: translate(-50%, -50%) scale(1.1);
 }
 
+/* Badges Container */
+.badges-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 300px;
+}
+
+.badge {
+    position: relative;
+    padding: 1rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.badge img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent
+    );
+    transition: 0.5s;
+}
+
+.badge:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.badge:hover::before {
+    left: 100%;
+}
+
+/* Badge specific styles */
+.badge-new {
+    background: linear-gradient(135deg, #ff3b3b 0%, #ff5252 100%);
+}
+
+.badge-qr {
+    background: linear-gradient(135deg, #ffd700 0%, #fff176 100%);
+}
+
+.badge-asllik {
+    background: linear-gradient(135deg, #4caf50 0%, #81c784 100%);
+}
+
+.badge-click {
+    background: linear-gradient(135deg, #1a1a1a 0%, #424242 100%);
+}
+
+.badge-payme {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+}
+
+.badge-humo {
+    background: linear-gradient(135deg, #1a2b47 0%, #2c3e50 100%);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--clr-primary);
+}
+
+#productVideo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Animations */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.badge {
+    animation: float 4s ease-in-out infinite;
+}
+
+.badge:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.badge:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.badge:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.badge:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.badge:nth-child(6) {
+    animation-delay: 1.0s;
+}
+
+/* Partners Carousel */
+.partners {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    animation: carousel 30s linear infinite;
+}
+
+.partner-logo {
+    flex-shrink: 0;
+    width: 120px;
+    height: auto;
+    margin: 0 2rem;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.partner-logo:hover {
+    opacity: 1;
+}
+
+@keyframes carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Pause animation on hover */
+.carousel:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer p {
+    margin-bottom: 0.5rem;
+}
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .hero {
+        gap: 2rem;
+    }
+
+    .badges-container {
+        width: 250px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
     .product-showcase {
         flex-direction: column;
     }
@@ -460,37 +436,39 @@ body {
 }
 
 @media (max-width: 768px) {
-    .hero {
+    .container {
+        padding: 1rem;
+    }
+
+    .stats {
         grid-template-columns: 1fr;
-        text-align: center;
+        gap: 1rem;
     }
 
     .badge {
         width: calc(50% - 1rem);
-        border-radius: 12px;
     }
 
-    /*.badge {*/
-    /*    border-radius: 12px;*/
-    /*}*/
-    .badges-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        padding: 0.5rem;
+    .feature {
+        justify-content: center;
     }
 
-    .badge-image {
-        padding: 0.75rem;
-    }
-
-    .partner-logo {
-        width: 80px;
-        margin: 0 1rem;
+    .partner-logos {
+        justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .badge {
         width: 100%;
+    }
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .play-icon {
+        border-width: 12px 0 12px 20px;
     }
 }
