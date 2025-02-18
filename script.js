@@ -52,35 +52,3 @@ videoContainer.addEventListener('mouseenter', () => {
 videoContainer.addEventListener('mouseleave', () => {
     productImage.style.transform = 'scale(1)';
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    const partners = [
-        {name: 'Mato', image: 'assets/images/partners/mato.jpg'},
-        {name: 'OKC', image: 'assets/images/partners/okc.jpg'},
-        {name: 'Beta', image: 'assets/images/partners/beta.jpg'},
-        {name: 'Bellissimo', image: 'assets/images/partners/bellissimo.jpg'},
-        {name: 'Arcazor', image: 'assets/images/partners/archaroz.jpg'},
-        {name: 'Akfa', image: 'assets/images/partners/akfa'},
-    ];
-
-    const carouselTrack = document.getElementById('partnerCarousel');
-
-    // Function to create partner logo element
-    function createPartnerLogo(partner) {
-        const img = document.createElement('img');
-        img.src = partner.image;
-        img.alt = partner.name;
-        img.className = 'partner-logo';
-        return img;
-    }
-
-    // Populate the carousel
-    partners.forEach(partner => {
-        carouselTrack.appendChild(createPartnerLogo(partner));
-    });
-
-    // Clone partners for seamless loop
-    partners.forEach(partner => {
-        carouselTrack.appendChild(createPartnerLogo(partner));
-    });
-});
